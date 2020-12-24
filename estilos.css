@@ -1,0 +1,75 @@
+body {
+    background-color: gainsboro;
+    margin: 0;
+}
+
+header {
+    border: 1px solid #21217a;
+    background-color: #21217a;
+}
+
+footer {
+    background-color: #21217a;
+    color: gainsboro;
+}
+h1 a{
+    color: gainsboro;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.autor {
+    color: #21217a;
+}
+
+.categorias {
+    color: #21217a;
+}
+
+.cabecera {
+    border: 1px solid gainsboro;
+    background-color: gainsboro;
+}
+
+
+
+ /* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px) {
+
+ }
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+
+ }
+ 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) {
+    #entradas {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+ }
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+    #entradas {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+ }
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+     #entradas {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+
+     }
+ } 
