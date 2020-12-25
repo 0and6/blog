@@ -11,14 +11,45 @@ header {
 footer {
     background-color: #21217a;
     color: gainsboro;
+    height: 1in;
 }
 h1 a{
-    color: gainsboro;
+    color: white;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+.title {
+    color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #21217A;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: #05056e;
+}
+
+a:hover {
+    text-decoration-line: underline;
+}
+
+figure {
+    text-align: center;
+}
+figure img {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+
+figure figcaption {
+    font-style: italic;
+    color: #36368f;
 }
 
 .autor {

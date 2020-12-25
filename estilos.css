@@ -8,9 +8,15 @@ header {
     background-color: #21217a;
 }
 
+article {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
 footer {
     background-color: #21217a;
     color: gainsboro;
+    height: 0.5in;
 }
 h1 a{
     color: gainsboro;
