@@ -1,11 +1,22 @@
+:root {
+    
+    --main-color: #002f4c;
+    
+}
+
 body {
-    background-color: gainsboro;
+    background-color: white;
     margin: 0;
 }
 
 header {
-    border: 1px solid #21217a;
-    background-color: #21217a;
+    border: 1px solid var(--main-color);
+    background-color: var(--main-color);
+}
+
+section {
+    margin-top: 1em;   
+    margin-bottom: 1em;
 }
 
 article {
@@ -14,25 +25,77 @@ article {
 }
 
 footer {
-    background-color: #21217a;
-    color: gainsboro;
+    background-color: var(--main-color);
+    color: white;
     height: 0.5in;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
+
 h1 a{
-    color: gainsboro;
+    color: white;
+}
+
+h1 a:hover{
+    color: white;
+    text-decoration-line: none;
+}
+
+h1 {
+    font-size: xx-large;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color:var(--main-color);
+}
+
+a:hover {
+    text-decoration-line: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color:var(--main-color);
+}
+
+figure {
+    text-align: center;
+}
+figure img {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+
+figure figcaption {
+    font-style: italic;
+    color: var(--main-color);
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid var(--main-color);
+    margin: 1.5em 10px;
+    padding: 0.5em 30px;
+    quotes: "\201C""\201D""\2018""\2019";
+    text-align: left;
+}
+
+blockquote:before {
+    color: #ccc;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
 }
 
 .autor {
-    color: #21217a;
+    color: var(--main-color);
 }
 
 .categorias {
-    color: #21217a;
+    color:var(--main-color);
 }
 
 .cabecera {
@@ -40,16 +103,41 @@ a {
     background-color: gainsboro;
 }
 
+.info-cabecera {
+    font-size: small;
+}
+.titulo-cabecera {
+    color: var(--main-color);
+}
 
+.resumen {
+    border-left: solid var(--main-color) 0.5em;
+}
+.info-resumen {
+    background-color: white;
+    border: none;
+}
 
- /* Extra small devices (phones, 600px and down) */
- @media only screen and (max-width: 600px) {
+.negritas {
+    font-weight: bold;
+}
 
+.cursivas {
+    font-style: italic;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    header h1 {
+        text-align: center;
+    }
  }
 
  /* Small devices (portrait tablets and large phones, 600px and up) */
  @media only screen and (min-width: 600px) {
-
+    header h1 {
+        text-align: center;
+    }
  }
  
  /* Medium devices (landscape tablets, 768px and up) */
@@ -59,11 +147,23 @@ a {
         margin-left: auto;
         margin-right: auto;
     }
+    header h1 {
+        text-align: left;
+        
+        margin-left: 1em;
+        margin-right: auto;
+    }
  }
  
  /* Large devices (laptops/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
     #entradas {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    header h1 {
+        text-align: left;
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
@@ -76,6 +176,11 @@ a {
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
-
      }
- } 
+     header h1 {
+        text-align: left;
+         max-width: 900px;
+         margin-left: auto;
+         margin-right: auto;
+     }
+ }

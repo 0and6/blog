@@ -1,42 +1,61 @@
 body {
-    background-color: gainsboro;
+    background-color: white;
     margin: 0;
 }
 
 header {
-    border: 1px solid #21217a;
-    background-color: #21217a;
+    border: 1px solid #002f4c;
+    background-color: #002f4c;
+}
+
+section {
+    margin-top: 1em;   
+    margin-bottom: 1em;
+}
+
+article {
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 footer {
-    background-color: #21217a;
-    color: gainsboro;
-    height: 1in;
+    background-color: #002f4c;
+    color: white;
+    height: 0.5in;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
+
+
 h1 a{
     color: white;
+}
+
+h1 a:hover{
+    color: white;
+    text-decoration-line: none;
 }
 
 h1 {
     font-size: xx-large;
 }
 
-.title {
-    color: black;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: #21217A;
-}
-
 a {
     text-decoration: none;
-    color: #05056e;
+    color: #002f4c;
 }
 
 a:hover {
     text-decoration-line: underline;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    color: #002f4c;
+}
+
+
+
 
 figure {
     text-align: center;
@@ -49,32 +68,87 @@ figure img {
 
 figure figcaption {
     font-style: italic;
-    color: #36368f;
+    color: #002f4c;
 }
 
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #002f4c;
+    margin: 1.5em 10px;
+    padding: 0.5em 30px;
+    quotes: "\201C""\201D""\2018""\2019";
+    text-align: left;
+}
+
+blockquote:before {
+    color: #ccc;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+
 .autor {
-    color: #21217a;
+    color: #002f4c;
 }
 
 .categorias {
-    color: #21217a;
+    color: #002f4c;
 }
 
 .cabecera {
-    border: 1px solid gainsboro;
-    background-color: gainsboro;
+    width: 100%;
+    border: 1px solid whitesmoke;
+    background-color: whitesmoke;
+    padding-left: 1em;
+    border-left: solid #002f4c;
 }
+
+
+.info-cabecera {
+    font-size: small;
+}
+
+
+
+.titulo-cabecera {
+    color: #002f4c;
+}
+
+.resumen {
+    border-left: solid #002f4c;
+}
+
+.info-resumen {
+    background-color: white;
+    border: none;
+}
+
+.negritas {
+    font-weight: bold;
+}
+
+.cursivas {
+    font-style: italic;
+}
+
+
 
 
 
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
-
+    header h1 {
+        text-align: center;
+    }
  }
 
  /* Small devices (portrait tablets and large phones, 600px and up) */
  @media only screen and (min-width: 600px) {
-
+    header h1 {
+        text-align: center;
+    }
  }
  
  /* Medium devices (landscape tablets, 768px and up) */
@@ -84,11 +158,23 @@ figure figcaption {
         margin-left: auto;
         margin-right: auto;
     }
+    header h1 {
+        text-align: left;
+        
+        margin-left: 1em;
+        margin-right: auto;
+    }
  }
  
  /* Large devices (laptops/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
     #entradas {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    header h1 {
+        text-align: left;
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
@@ -101,6 +187,11 @@ figure figcaption {
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
-
      }
- } 
+     header h1 {
+        text-align: left;
+         max-width: 900px;
+         margin-left: auto;
+         margin-right: auto;
+     }
+ }
