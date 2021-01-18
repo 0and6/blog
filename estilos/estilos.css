@@ -1,12 +1,12 @@
 :root {
-    
-    --main-color: #002f4c;
-        
+    --main-color: #002f4c;        
 }
 
 body {
     background-color: white;
     margin: 0;
+    font-family: 'DejaVu Serif';
+    font-size: 16px;
 }
 
 header {
@@ -99,8 +99,8 @@ blockquote:before {
 }
 
 .cabecera {
-    border: 1px solid gainsboro;
-    background-color: gainsboro;
+    border: 1px solid whitesmoke;
+    background-color: whitesmoke;
 }
 
 .info-cabecera {

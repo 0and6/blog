@@ -4,15 +4,36 @@ include_once "database.php";
 
 $db = new Database();
 
-$resultado = $db->seleccionar("select * from post");
+$url = $_SERVER['REQUEST_URI'];
+$url = strtolower($url);
+$parametros = explode("/", $url);
+$indice = 2;
 
-/*
-while ($row = pg_fetch_row($resultado)) {
-    echo "id: $row[0] titulo: $row[1] descripcion: $row[2]";
-    echo "<br />\n";
-}
-*/
-
-include_once "vistas/principal.php";
+switch($parametros[$indice]):
+    case "posts":
+        $nombre = $parametros[$indice + 1];
+        $sentencia = 'SELECT posts.titulo, posts.fecha_pub, posts.contenido, autores.nombre FROM posts inner join autores on posts.autor = autores.id WHERE url = ?';
+        $resultado = $db->sentencia($sentencia, array($nombre));
+        
+        if(count($resultado) == 0) {
+            echo "Error página no encontrada";
+        } else {
+            include "vistas/posts.php";
+        }
+    break;
+    case $parametros[$indice] == "index.php":
+    case $parametros[$indice] == "index.html":
+    case $parametros[$indice] == "index.htm":
+    case $parametros[$indice] == "index":
+    case $parametros[$indice] == "":
+                
+        $sentencia = 'SELECT posts.titulo, posts.url, posts.fecha_pub, posts.contenido, autores.nombre FROM posts inner join autores on posts.autor = autores.id';
+        $resultado = $db->seleccionar($sentencia);
+        include_once "vistas/principal.php";
+    break;
+    default:
+        include "vistas/error_1.html";
+    break;
+endswitch;
 
 ?>

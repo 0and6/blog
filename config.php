@@ -2,9 +2,9 @@
 
 return array(
     'host' => 'localhost',
-    'usuario_db' => 'postgres',
+    'usuario_db' => 'admin',
     'contrasenia_db' => '123',
-    'nombre_db' => 'blog',
+    'nombre_db' => '0and6blog',
 );
 
 ?>
