@@ -11,12 +11,12 @@ $indice = 2;
 
 switch($parametros[$indice]):
     case "posts":
-        $nombre = $parametros[$indice + 1];
+        $nombre = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";      
         $sentencia = 'SELECT posts.titulo, posts.fecha_pub, posts.contenido, autores.nombre FROM posts inner join autores on posts.autor = autores.id WHERE url = ?';
         $resultado = $db->sentencia($sentencia, array($nombre));
-        
         if(count($resultado) == 0) {
-            echo "Error página no encontrada";
+            $mensaje = "La entrada no existe o la url esta mal";
+            include "vistas/error_1.php";
         } else {
             include "vistas/posts.php";
         }
@@ -32,7 +32,8 @@ switch($parametros[$indice]):
         include_once "vistas/principal.php";
     break;
     default:
-        include "vistas/error_1.html";
+        $mensaje = "La página no existe, recurso no encontrado";
+        include "vistas/error_1.php";
     break;
 endswitch;
 
