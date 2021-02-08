@@ -27,7 +27,7 @@ switch($parametros[$indice]):
     case $parametros[$indice] == "index":
     case $parametros[$indice] == "":
                 
-        $sentencia = 'SELECT posts.titulo, posts.url, posts.fecha_pub, posts.contenido, autores.nombre FROM posts inner join autores on posts.autor = autores.id ORDER BY fecha_pub DESC';
+        $sentencia = 'SELECT posts.titulo, posts.url, posts.fecha_pub, posts.contenido, posts.descripcion, autores.nombre FROM posts inner join autores on posts.autor = autores.id ORDER BY fecha_pub DESC';
         $resultado = $db->seleccionar($sentencia);
         include_once "vistas/principal.php";
     break;

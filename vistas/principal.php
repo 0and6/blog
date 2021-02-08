@@ -3,8 +3,6 @@
 include_once "header.php";
 ?>
         <section id="entradas">
-            
-        
 
 <?php
 
@@ -18,7 +16,7 @@ forEach($resultado as $fila) {
                 </header>
                 <div class="contenido">
                     <p>
-                        <?php /* Aquí va un resumen */?>
+                        <?php echo $fila['descripcion']; ?>
                     </p>
                 </div>
             </article>
@@ -26,22 +24,6 @@ forEach($resultado as $fila) {
 }
 
 ?>
-          
-<p>Código en c</p>
-<pre><code class="language-c">#include &lt;iostream&gt;
-
-int main(int argv, int argc) {
-    printf("%s\n", "hola mundo");
-}
-</code></pre>
-
-<p>Código en Java</p>
-<pre><code class="language-java">public class Imprimir {
-    public void static void main(String[] args) {
-        System.out.println("hola perra, ¿Cómo estas?");
-    }
-}
-</code></pre>
 
         </section>
 <?php
