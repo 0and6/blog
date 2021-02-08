@@ -3,7 +3,7 @@
     <head>
         <title>Blog 0and6</title>
         <meta charset="UTF-8">
-        <link href="estilos/prism.css" rel="stylesheet" />
+        <link href="/blog/estilos/prism.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="description" content="Blog personal dirigido a aficionados a la programacion, fisica, electronica y matematicas">
     </head>
