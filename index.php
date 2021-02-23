@@ -9,6 +9,9 @@ $url = strtolower($url);
 $parametros = explode("/", $url);
 $indice = 2;
 
+$limit = 2;
+$offset = 0;
+
 switch($parametros[$indice]):
     case "posts":
         $nombre = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";      
@@ -26,11 +29,22 @@ switch($parametros[$indice]):
     case $parametros[$indice] == "index.htm":
     case $parametros[$indice] == "index":
     case $parametros[$indice] == "":
-                
-        $sentencia = 'SELECT posts.titulo, posts.url, posts.fecha_pub, posts.contenido, posts.descripcion, autores.nombre FROM posts inner join autores on posts.autor = autores.id ORDER BY fecha_pub DESC';
-        $resultado = $db->seleccionar($sentencia);
+        
+        $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion, autores.nombre FROM posts inner join autores on posts.autor = autores.id ORDER BY fecha_pub DESC LIMIT ? OFFSET ?";
+        
+        $resultado = $db->paginacionEntradas($sentencia, $limit, $offset);
         include_once "vistas/principal.php";
     break;
+    case "pagina":
+        $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion, autores.nombre FROM posts inner join autores on posts.autor = autores.id ORDER BY fecha_pub DESC LIMIT ? OFFSET ?";
+        if(isset($parametros[$indice+1]) && !empty($parametros[$indice+1])) {
+            $offset = ($parametros[$indice+1] - 1) * 2;
+        }
+        $resultado = $db->paginacionEntradas($sentencia, $limit, $offset);
+        
+        //$resultado = $db->seleccionar($sentencia);
+
+        include_once "vistas/principal.php";
     case "publicar":
         include "vistas/publicar.php";
         break;
