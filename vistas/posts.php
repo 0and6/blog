@@ -1,4 +1,5 @@
 <?php
+$title = $resultado[0]['titulo'];
 include_once "header.php";
 ?>
 <section id="entradas">

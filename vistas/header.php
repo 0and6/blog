@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?php echo $resultado[0]['titulo'];?> - 0and6.xyz</title>
+        <title><?php 
+        
+        if(isset($title)) {
+            echo $title . " - ";
+        }
+        //echo $resultado[0]['titulo'] . " - ";
+        ?>
+        0and6.xyz</title>
         <meta charset="UTF-8">
         <link href="/blog/estilos/prism.css" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, user-scalable=no">
