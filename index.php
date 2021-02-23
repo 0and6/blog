@@ -9,7 +9,7 @@ $url = strtolower($url);
 $parametros = explode("/", $url);
 $indice = 2;
 
-$limit = 2;
+$limit = 4;
 $offset = 0;
 
 switch($parametros[$indice]):
@@ -37,8 +37,8 @@ switch($parametros[$indice]):
     break;
     case "pagina":
         $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion, autores.nombre FROM posts inner join autores on posts.autor = autores.id ORDER BY fecha_pub DESC LIMIT ? OFFSET ?";
-        if(isset($parametros[$indice+1]) && !empty($parametros[$indice+1])) {
-            $offset = ($parametros[$indice+1] - 1) * 2;
+        if(isset($parametros[$indice+1]) && !empty($parametros[$indice+1]) && $parametros[$indice+1] > 0) {
+            $offset = ($parametros[$indice+1] - 1) * $limit;
         }
         $resultado = $db->paginacionEntradas($sentencia, $limit, $offset);
         
