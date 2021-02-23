@@ -26,6 +26,14 @@ class Database {
         return $sentencia->fetchAll();
     }
 
+    public function paginacionEntradas($sentencia, $limit, $offset) { 
+        $sentencia = $this->mbd->prepare($sentencia);
+        $sentencia->bindParam(1, $limit, PDO::PARAM_INT);
+        $sentencia->bindParam(2, $offset, PDO::PARAM_INT);
+        $sentencia->execute();
+        return $sentencia->fetchAll();
+    }
+
     
 
     public function __destruct() {
