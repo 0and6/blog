@@ -12,8 +12,8 @@ if(isset($_POST['titulo'])) {
     $titulo = $_POST['titulo'];
     echo $_POST['titulo'];
 
-
-    $db->sentencia("INSERT INTO posts(titulo, descripcion, contenido, url, autor, categorias, fecha_pub) values(?,?,?, ?,1, '1', ?)", array($_POST['titulo'], $_POST['descripcion'], $_POST['contenido'], $_POST['url'], $_POST['fecha']));
+    $sentencia = "INSERT INTO posts(titulo, descripcion, contenido, url, autor, categorias, fecha_pub) values(?,?,?, ?,1, '1', ?)";
+    $db->sentencia($sentencia, array($_POST['titulo'], $_POST['descripcion'], $_POST['contenido'], $_POST['url'], $_POST['fecha']));
 
 }
 ?>
