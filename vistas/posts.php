@@ -6,7 +6,9 @@ include_once "header.php";
     <article class="articulo">
         <header class="cabecera">
             <h2 class="titulo-cabecera"><?php echo $resultado[0]['titulo'];?></h2>
-            <div class="info-cabecera">Publicado el <?php echo $resultado[0]['fecha_pub']?> por <a href="#" class="autor"><?php echo $resultado[0]['nombre']?></a>. <a href="#" class="categorias">Arduino</a>.</div>
+            <div class="info-cabecera">Publicado el <?php echo $resultado[0]['fecha_pub']?> por 
+                <a href="#" class="autor"><?php echo $resultado[0]['autor']?></a>. 
+                <a href="#" class="categorias"><?php echo $resultado[0]['categoria']?></a>.</div>
             <br>
         </header>
         <div class="contenido">

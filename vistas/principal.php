@@ -11,7 +11,10 @@ forEach($resultado as $fila) {
             <article class="resumen">
                 <header class="info-resumen">
                     <h2><a href="/blog/posts/<?php echo $fila['url']; ?>"><?php echo $fila['titulo']?></a></h2>
-                    <div class="info-cabecera">Fecha: <?php echo $fila['fecha_pub'] ?>. Autor: <a href="#" class="autor"><?php echo $fila['nombre']?></a>. <a href="#" class="categorias">Soleda Etla</a>.</div>
+                    <div class="info-cabecera">Fecha: <?php echo $fila['fecha_pub'] ?>. Autor: 
+                        <a href="#" class="autor"><?php echo $fila['autor']?></a>. 
+                        <a href="#" class="categorias"><?php echo $fila['categoria']?></a>.
+                    </div>
                     
                 </header>
                 <div class="contenido">
