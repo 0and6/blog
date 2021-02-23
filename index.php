@@ -45,6 +45,7 @@ switch($parametros[$indice]):
         //$resultado = $db->seleccionar($sentencia);
 
         include_once "vistas/principal.php";
+        break;
     case "publicar":
         include "vistas/publicar.php";
         break;
