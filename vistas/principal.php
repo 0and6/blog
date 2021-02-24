@@ -26,6 +26,19 @@ forEach($resultado as $fila) {
 <?php
 }
 
+if(count($resultado) == 0) {
+    ?>
+            <article>
+                <header class="info-resumen">
+                    <h2>No hay tantas entradas</h2>
+                </header>
+                <div >
+                    <p>Puede regresar a ver el contenido anterior</p>
+                </div>
+            </article>
+    <?php
+}
+
 ?>
 
         </section>
