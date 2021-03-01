@@ -130,6 +130,18 @@ blockquote:before {
     font-style: italic;
 }
 
+.p-siguiente {
+    display: inline-block;
+    border: solid;
+
+}
+
+.p-anterior {
+    display: inline-block;
+    border: solid;
+    right: 0;
+
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     header h1 {
@@ -165,6 +177,7 @@ blockquote:before {
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
+        
     }
     header h1 {
         text-align: left;
