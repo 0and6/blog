@@ -5,7 +5,7 @@ return array(
     'usuario_db' => 'admin',
     'contrasenia_db' => '123',
     'nombre_db' => '0and6blog',
-    'url' => 'http://localhost/blog'
+    'url' => '/blog'
 );
 
 ?>
