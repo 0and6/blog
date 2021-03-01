@@ -46,6 +46,10 @@ h1 {
     font-size: xx-large;
 }
 
+p {
+    line-height: 1.5rem;
+}
+
 a {
     text-decoration: none;
     color:var(--main-color);
