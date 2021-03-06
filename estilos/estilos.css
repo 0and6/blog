@@ -131,17 +131,11 @@ blockquote:before {
     font-style: italic;
 }
 
-.p-siguiente {
+.p-siguiente, .p-anterior {
     display: inline-block;
-    border: solid;
-
-}
-
-.p-anterior {
-    display: inline-block;
-    border: solid;
-    right: 0;
-
+    border: solid 2px var(--main-color);
+    padding: 2px;
+    margin: 5px;
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

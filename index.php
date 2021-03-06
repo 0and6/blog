@@ -8,7 +8,7 @@ $url = strtolower($url);
 $parametros = explode("/", $url);
 $indice = 2;
 
-$limit = 4;
+$limit = 6;
 $offset = 0;
 $entradasTotales = 0;
 $sentencia = "SELECT count(id) FROM posts";
@@ -63,8 +63,13 @@ switch($parametros[$indice]):
         include "vistas/publicar.php";
         break;
     default:
-        $mensaje = "La página no existe, recurso no encontrado";
-        include "vistas/error_1.php";
+        $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
+        . "autores.nombre as autor, categorias.nombre as categoria FROM posts inner" .
+        " join autores on posts.autor = autores.id inner join categorias on posts.categorias = " 
+        . "categorias.id ORDER BY fecha_pub DESC LIMIT ? OFFSET ?";
+
+        $resultado = $db->paginacionEntradas($sentencia, $limit, $offset);
+        include_once "vistas/principal.php";
     break;
 endswitch;
 
