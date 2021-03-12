@@ -8,6 +8,8 @@ include_once "database.php";
 <?php
 $db = new Database();
 $titulo = "";
+
+
 if(isset($_POST['titulo'])) {
     $titulo = $_POST['titulo'];
     echo $_POST['titulo'];
@@ -20,13 +22,23 @@ if(isset($_POST['titulo'])) {
 <section id="entradas">
     <p>Vamos a crear una nueva entrada</p>      
     <form action="#" method="POST">
-        <label for="titulo">Titulo</label><br><input type="text" name="titulo" value="<?php echo $titulo;?>" required>
+        <label for="titulo">Titulo</label>
         <br>
-        <label for="contenido">Contenido</label><br><textarea name="contenido" required></textarea>
+        <input type="text" name="titulo" value="<?php echo $titulo; echo $resultado[0]['titulo'] ?? '';?>" required>
         <br>
+
+        <label for="contenido">Contenido</label>
+        <br>
+        <textarea name="contenido" required>
+        <?php echo $resultado[0]['contenido'] ?? '';?>
+        </textarea>
+        <br>
+
         <label for="descripcion">Descripcion</label>
         <br>
-        <textarea name="descripcion" id="" required></textarea>
+        <textarea name="descripcion" id="" required>
+        <?php echo $resultado[0]['descripcion'] ?? '';?>
+        </textarea>
         <br>
 
         <label for="fecha">Fecha</label>
@@ -34,7 +46,9 @@ if(isset($_POST['titulo'])) {
         <input type="date" name="fecha" id="" required></input>
         <br>
 
-        <label for="url">Url</label><br><input type="text" name="url" required>
+        <label for="url">Url</label>
+        <br>
+        <input type="text" name="url" value="<?php echo $resultado[0]['url'] ?? '';?>" required>
         <input type="submit">
     </form>
 </section>

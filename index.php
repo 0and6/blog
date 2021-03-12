@@ -27,7 +27,7 @@ switch($parametros[$indice]):
             $mensaje = "La entrada no existe o la url esta mal";
             include "vistas/error_1.php";
         } else {
-            include "vistas/posts.php";
+            require "vistas/posts.php";
         }
     break;
     case $parametros[$indice] == "index.php":
@@ -62,6 +62,15 @@ switch($parametros[$indice]):
     case "publicar":
         include "vistas/publicar.php";
         break;
+    case "editar":
+            $entrada = $parametros[$indice + 1];
+
+            $sentencia = 'SELECT posts.titulo, posts.fecha_pub, posts.contenido, '
+                .' posts.url, posts.descripcion FROM posts inner join autores on posts.autor = autores.id '
+                .' inner join categorias on posts.categorias = categorias.id WHERE posts.id = ?';
+            $resultado = $db->sentencia($sentencia, array($entrada));
+            include "vistas/publicar.php";
+            break;
     default:
         $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
         . "autores.nombre as autor, categorias.nombre as categoria FROM posts inner" .
