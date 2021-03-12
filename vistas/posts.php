@@ -11,6 +11,7 @@ include_once "header.php";
                 <a href="#" class="categorias"><?php echo $resultado[0]['categoria']?></a>.</div>
             <br>
         </header>
+        <hr>
         <div class="contenido">
         <?php
             echo $resultado[0]['contenido'];

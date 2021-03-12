@@ -8,6 +8,7 @@ body {
     margin: 0;
     font-family: 'Lora DejaVu Serif';
     font-size: 16px;
+    background-color: whitesmoke;
 }
 
 header {
@@ -21,8 +22,13 @@ section {
 }
 
 article {
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 footer {
@@ -104,8 +110,9 @@ blockquote:before {
 }
 
 .cabecera {
-    border: 1px solid whitesmoke;
-    background-color: whitesmoke;
+    border: 1px solid white;
+    background-color: white;
+    
 }
 
 .info-cabecera {
@@ -116,7 +123,7 @@ blockquote:before {
 }
 
 .resumen {
-    border-left: solid var(--main-color) 0.5em;
+    border-left: solid var(--main-color) 0.35em;
 }
 .info-resumen {
     background-color: white;
@@ -133,8 +140,10 @@ blockquote:before {
 
 .p-siguiente, .p-anterior {
     display: inline-block;
-    border: solid 2px var(--main-color);
-    padding: 2px;
+    border: solid 1px;
+    border-color: var(--main-color);
+    border-radius: 15%;
+    padding: 5px;
     margin: 5px;
 }
 /* Extra small devices (phones, 600px and down) */
