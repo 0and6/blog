@@ -69,7 +69,7 @@ switch($parametros[$indice]):
                 .' posts.url, posts.descripcion FROM posts inner join autores on posts.autor = autores.id '
                 .' inner join categorias on posts.categorias = categorias.id WHERE posts.id = ?';
             $resultado = $db->sentencia($sentencia, array($entrada));
-            include "vistas/publicar.php";
+            include "vistas/editar.php";
             break;
     default:
         $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
