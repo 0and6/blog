@@ -82,6 +82,15 @@ switch($parametros[$indice]):
             $resultado = $db->sentencia($sentencia, array($entrada));
             include "vistas/editar.php";
             break;
+    case "autor":
+        $alias = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";  
+        $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
+        . " autores.nombre as autor, autores.alias as alias, categorias.nombre as categoria, categorias.url as categoriaurl from posts inner join autores on posts.autor = "
+        . "autores.id  inner join categorias on posts.categorias = categorias.id "
+        . " where autores.alias = ? ORDER by posts.fecha_pub DESC";
+        $resultado = $db->sentencia($sentencia, array($alias));
+        include_once "vistas/autores.php";
+        break;
     default:
         $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
         . "autores.nombre as autor, autores.alias as alias, categorias.nombre as categoria, categorias.url as categoriaurl FROM posts inner" .
