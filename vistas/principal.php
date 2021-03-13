@@ -13,7 +13,7 @@ forEach($resultado as $fila) {
                     <h2><a href="<?php echo $configs['url'];?>/posts/<?php echo $fila['url']; ?>"><?php echo $fila['titulo']?></a></h2>
                     <div class="info-cabecera">Fecha: <?php echo $fila['fecha_pub'] ?>. Autor: 
                         <a href="#" class="autor"><?php echo $fila['autor']?></a>. 
-                        <a href="#" class="categorias"><?php echo $fila['categoria']?></a>.
+                        <a href="/blog/categoria/<?php echo $fila['categoriaurl'] ?>" class="categorias"><?php echo $fila['categoria']?></a>.
                     </div>
                     
                 </header>
