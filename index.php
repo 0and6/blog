@@ -30,6 +30,17 @@ switch($parametros[$indice]):
             require "vistas/posts.php";
         }
     break;
+
+    case "categoria":
+        $categoria = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
+        $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
+        . " autores.nombre as autor, categorias.nombre as categoria from posts inner join autores on posts.autor = "
+        . "autores.id  inner join categorias on posts.categorias = categorias.id "
+        . " where categorias.nombre = ? ORDER by posts.fecha_pub DESC";
+        $resultado = $db->sentencia($sentencia, array($categoria));
+        include_once "vistas/categorias.php";
+
+        break;
     case $parametros[$indice] == "index.php":
     case $parametros[$indice] == "index.html":
     case $parametros[$indice] == "index.htm":
