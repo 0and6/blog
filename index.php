@@ -31,10 +31,8 @@ switch($parametros[$indice]):
     case "categoria":
         $categoria = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
         $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
-        echo "Pagina $pagina";
-        $entradasTotales = $model->entradasTotalesCategoria($categoria);
-        $entradasTotales = $entradasTotales[0][0];
-        echo "El numero total de entradas de esta categoria es $entradasTotales";
+        
+        $entradasTotales = $model->entradasTotalesCategoria($categoria)[0][0];
         $resultado = $model->obtenerPostsTotalesCategoria($categoria);
         include_once "vistas/categorias.php";
         break;
