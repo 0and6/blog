@@ -28,6 +28,14 @@ class IndexModel {
         return $this->db->paginacionEntradasWhere($sentencia, $alias, $limit, $offset);
     }
 
+    function obtenerPostsTotalesCategoria($categoria, $limit, $offset) {
+        $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
+            . " autores.nombre as autor, autores.alias as alias, categorias.nombre as categoria, categorias.url as categoriaurl from posts inner join autores on posts.autor = "
+            . "autores.id  inner join categorias on posts.categorias = categorias.id "
+            . " where categorias.nombre = ? ORDER by posts.fecha_pub DESC LIMIT ? OFFSET ?";
+        return $this->db->paginacionEntradasWhere($sentencia, $categoria, $limit, $offset);
+    }
+
     function entradasTotales() {
         $sentencia = "SELECT count(id) FROM posts";
         $resultado = $this->db->seleccionar($sentencia)->fetchAll();
@@ -47,13 +55,7 @@ class IndexModel {
     }
 
 
-    function obtenerPostsTotalesCategoria($categoria) {
-        $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
-            . " autores.nombre as autor, autores.alias as alias, categorias.nombre as categoria, categorias.url as categoriaurl from posts inner join autores on posts.autor = "
-            . "autores.id  inner join categorias on posts.categorias = categorias.id "
-            . " where categorias.nombre = ? ORDER by posts.fecha_pub DESC";
-        return $this->db->sentencia($sentencia, array($categoria));
-    }
+    
 
     function obtenerEditarPost() {
         return 'SELECT posts.titulo, posts.fecha_pub, posts.contenido, '

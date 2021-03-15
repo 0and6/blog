@@ -33,7 +33,12 @@ switch($parametros[$indice]):
         $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
         
         $entradasTotales = $model->entradasTotalesCategoria($categoria)[0][0];
-        $resultado = $model->obtenerPostsTotalesCategoria($categoria);
+        //$resultado = $model->obtenerPostsTotalesCategoria($categoria);
+
+        $offset = ($pagina - 1) * $limit;
+        
+        $resultado = $model->obtenerPostsTotalesCategoria($categoria, $limit, $offset);
+
         include_once "vistas/categorias.php";
         break;
     case $parametros[$indice] == "index.php":
@@ -70,10 +75,7 @@ switch($parametros[$indice]):
         $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
         
         $entradasTotales = $model->entradasTotalesAutor($alias)[0][0];
-
-        
         $offset = ($pagina - 1) * $limit;
-        
         
         $resultado = $model->obtenerPostsTotalesAutor($alias, $limit, $offset);
 
