@@ -34,6 +34,18 @@ class IndexModel {
         return intval($resultado[0][0]);
     }
 
+    function entradasTotalesCategoria($categoria) {
+        $sentencia = "SELECT count(posts.id) FROM posts inner join categorias on posts.categorias = categorias.id"
+            . " where categorias.nombre = ?";
+        return $this->db->sentencia($sentencia, array($categoria));
+    }
+
+    function entradasTotalesAutor($alias) {
+        $sentencia = "SELECT count(posts.id) FROM posts inner join autores on posts.autor = autores.id"
+            . " where autores.alias = ?";
+        return $this->db->sentencia($sentencia, array($alias));
+    }
+
 
     function obtenerPostsTotalesCategoria($categoria) {
         $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"

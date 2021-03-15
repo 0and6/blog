@@ -31,7 +31,9 @@ switch($parametros[$indice]):
     case "categoria":
         $categoria = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
         $pagina = count($parametros) >= 5 ? $parametros[$indice + 2] : 0;
-        echo $pagina;
+        $entradasTotales = $model->entradasTotalesCategoria($categoria);
+        $entradasTotales = $entradasTotales[0][0];
+        echo "El numero total de entradas de esta categoria es $entradasTotales";
         $resultado = $model->obtenerPostsTotalesCategoria($categoria);
         include_once "vistas/categorias.php";
         break;
@@ -67,7 +69,7 @@ switch($parametros[$indice]):
     case "autor":
         $alias = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
         $pagina = count($parametros) >= 5 ? $parametros[$indice + 2] : 0;
-        echo $pagina;
+        $entradasTotales = $model->entradasTotalesAutor($alias)[0][0];
         $resultado = $model->obtenerPostsTotalesAutor($alias);
         include_once "vistas/autores.php";
         break;
