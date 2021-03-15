@@ -11,7 +11,7 @@ $url = strtolower($url);
 $parametros = explode("/", $url);
 $indice = 2;
 
-$limit = 2;
+$limit = 6;
 $offset = 0;
 $entradasTotales = 0;
 $pagina = 1;
@@ -31,7 +31,7 @@ switch($parametros[$indice]):
     case "categoria":
         $categoria = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
         $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
-        
+        if($pagina < 1) $pagina = 1;
         $entradasTotales = $model->entradasTotalesCategoria($categoria)[0][0];
         //$resultado = $model->obtenerPostsTotalesCategoria($categoria);
 
@@ -46,6 +46,7 @@ switch($parametros[$indice]):
     case $parametros[$indice] == "index.htm":
     case $parametros[$indice] == "index":
     case $parametros[$indice] == "":
+        $entradasTotales = $model->entradasTotales();
         $resultado = $model->obtenerPostsTotales($limit, $offset);
         include_once "vistas/principal.php";
     break;
@@ -73,7 +74,8 @@ switch($parametros[$indice]):
     case "autor":
         $alias = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
         $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
-        
+        if($pagina < 1) $pagina = 1;
+
         $entradasTotales = $model->entradasTotalesAutor($alias)[0][0];
         $offset = ($pagina - 1) * $limit;
         

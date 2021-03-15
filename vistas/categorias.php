@@ -38,24 +38,25 @@ if(count($resultado) == 0) {
     <?php
 }
 
-$paginaAnterior = 0;
 $paginaSiguiente = 0;
+$paginaAnterior = 0;
 
-if( $entradasTotales > ($pagina*$limit) ) {
-    $paginaAnterior = $pagina+1;
-    if($pagina > 1) {
-        $paginaSiguiente = $pagina-1;
-    }
-} else {
-    $paginaSiguiente = 1;
+if( $pagina > intdiv($entradasTotales, $limit) + $entradasTotales%$limit) {
+    echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$categoria/1'>Primera página</a></div>";
     $paginaAnterior = intdiv($entradasTotales, $limit);
-}
-
-if($paginaSiguiente > 0) {
+    if($paginaAnterior > 1) {
+        echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$categoria/$paginaAnterior'>Última página</a></div>";
+    }
+} else if($entradasTotales > ($pagina * $limit)) {
+    if( $pagina > 1 ) {
+        $paginaSiguiente = $pagina - 1;
     echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$categoria/$paginaSiguiente'>Página siguiente</a></div>";
-}
-if($paginaAnterior > 0) {
+    }
+    $paginaAnterior = $pagina + 1;
     echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$categoria/$paginaAnterior'>Página anterior</a></div>";
+} else if($pagina > 1) {
+    $paginaSiguiente = $pagina - 1;
+    echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$categoria/$paginaSiguiente'>Pagina siguiente</a></div>";
 }
 
 ?>

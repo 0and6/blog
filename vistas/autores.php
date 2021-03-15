@@ -38,41 +38,26 @@ if(count($resultado) == 0) {
     <?php
 }
 
-/*
-$paginaAnterior = $pagina+1;
-$paginaSiguiente = $pagina-1;
-$ultimaPagina = intdiv($entradasTotales, $limit);
-if(($limit * $pagina) > $entradasTotales && count($resultado) == 0) {
-    echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/1'>Primera página</a></div>";
-    echo "<div class='p-anterior'><a href='$configs[url]/autor/$alias/$ultimaPagina'>Última página</a></div>";
-} else if(($limit * $pagina) > $entradasTotales) {
-    echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaSiguiente'>Página siguiente</a></div>";
-} else {
-    if($pagina > 1) {   
-        echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaSiguiente'>Página siguiente</a></div>";
-    }
-    echo "<div class='p-anterior'><a href='$configs[url]/autor/$alias/$paginaAnterior'>Página anterior</a></div>";
-}
-*/
 
-$paginaAnterior = 0;
 $paginaSiguiente = 0;
+$paginaAnterior = 0;
 
-if( $entradasTotales > ($pagina*$limit) ) {
-    $paginaAnterior = $pagina+1;
-    if($pagina > 1) {
-        $paginaSiguiente = $pagina-1;
-    }
-} else {
-    $paginaSiguiente = 1;
+if( $pagina > intdiv($entradasTotales, $limit) + $entradasTotales%$limit) {
+    echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/1'>Primera página</a></div>";
     $paginaAnterior = intdiv($entradasTotales, $limit);
-}
-
-if($paginaSiguiente > 0) {
+    if($paginaAnterior > 1) {
+        echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaAnterior'>Última página</a></div>";
+    }
+} else if($entradasTotales > ($pagina * $limit)) {
+    if( $pagina > 1 ) {
+        $paginaSiguiente = $pagina - 1;
     echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaSiguiente'>Página siguiente</a></div>";
-}
-if($paginaAnterior > 0) {
+    }
+    $paginaAnterior = $pagina + 1;
     echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaAnterior'>Página anterior</a></div>";
+} else if($pagina > 1) {
+    $paginaSiguiente = $pagina - 1;
+    echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaSiguiente'>Pagina siguiente</a></div>";
 }
 ?>
         </section>
