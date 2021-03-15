@@ -19,13 +19,13 @@ class IndexModel {
         
     }
 
-    function obtenerPostsTotalesAutor($alias) {
+    function obtenerPostsTotalesAutor($alias, $limit, $offset) {
         $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
         . " autores.nombre as autor, autores.alias as alias, categorias.nombre as categoria, categorias.url as categoriaurl from posts inner join autores on posts.autor = "
         . "autores.id  inner join categorias on posts.categorias = categorias.id "
-        . " where autores.alias = ? ORDER by posts.fecha_pub DESC";
+        . " where autores.alias = ? ORDER by posts.fecha_pub DESC LIMIT ? OFFSET ?";
 
-        return $this->db->sentencia($sentencia, array($alias));
+        return $this->db->paginacionEntradasWhere($sentencia, $alias, $limit, $offset);
     }
 
     function entradasTotales() {

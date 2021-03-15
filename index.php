@@ -70,7 +70,14 @@ switch($parametros[$indice]):
         $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
         
         $entradasTotales = $model->entradasTotalesAutor($alias)[0][0];
-        $resultado = $model->obtenerPostsTotalesAutor($alias);
+
+        
+        $offset = ($pagina - 1) * $limit;
+        
+        
+        $resultado = $model->obtenerPostsTotalesAutor($alias, $limit, $offset);
+
+        //$resultado = $model->obtenerPostsTotalesAutor($alias);
         include_once "vistas/autores.php";
         break;
     default:
