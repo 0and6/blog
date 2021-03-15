@@ -38,6 +38,7 @@ if(count($resultado) == 0) {
     <?php
 }
 
+/*
 $paginaAnterior = $pagina+1;
 $paginaSiguiente = $pagina-1;
 $ultimaPagina = intdiv($entradasTotales, $limit);
@@ -47,16 +48,33 @@ if(($limit * $pagina) > $entradasTotales && count($resultado) == 0) {
 } else if(($limit * $pagina) > $entradasTotales) {
     echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaSiguiente'>Página siguiente</a></div>";
 } else {
-    if($pagina > 1) {
-        
+    if($pagina > 1) {   
         echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaSiguiente'>Página siguiente</a></div>";
     }
-    
     echo "<div class='p-anterior'><a href='$configs[url]/autor/$alias/$paginaAnterior'>Página anterior</a></div>";
 }
+*/
 
+$paginaAnterior = 0;
+$paginaSiguiente = 0;
+
+if( $entradasTotales > ($pagina*$limit) ) {
+    $paginaAnterior = $pagina+1;
+    if($pagina > 1) {
+        $paginaSiguiente = $pagina-1;
+    }
+} else {
+    $paginaSiguiente = 1;
+    $paginaAnterior = intdiv($entradasTotales, $limit);
+}
+
+if($paginaSiguiente > 0) {
+    echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaSiguiente'>Página siguiente</a></div>";
+}
+if($paginaAnterior > 0) {
+    echo "<div class='p-siguiente'><a href='$configs[url]/autor/$alias/$paginaAnterior'>Página anterior</a></div>";
+}
 ?>
-
         </section>
 <?php
 include_once "footer.php";

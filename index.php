@@ -11,7 +11,7 @@ $url = strtolower($url);
 $parametros = explode("/", $url);
 $indice = 2;
 
-$limit = 6;
+$limit = 2;
 $offset = 0;
 $entradasTotales = 0;
 $pagina = 1;
@@ -30,7 +30,8 @@ switch($parametros[$indice]):
 
     case "categoria":
         $categoria = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
-        $pagina = count($parametros) >= 5 ? $parametros[$indice + 2] : 0;
+        $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
+        echo "Pagina $pagina";
         $entradasTotales = $model->entradasTotalesCategoria($categoria);
         $entradasTotales = $entradasTotales[0][0];
         echo "El numero total de entradas de esta categoria es $entradasTotales";
@@ -68,7 +69,8 @@ switch($parametros[$indice]):
         break;
     case "autor":
         $alias = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
-        $pagina = count($parametros) >= 5 ? $parametros[$indice + 2] : 0;
+        $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
+        
         $entradasTotales = $model->entradasTotalesAutor($alias)[0][0];
         $resultado = $model->obtenerPostsTotalesAutor($alias);
         include_once "vistas/autores.php";
