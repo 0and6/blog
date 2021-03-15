@@ -7,8 +7,8 @@ include_once "header.php";
         <header class="cabecera">
             <h2 class="titulo-cabecera"><?php echo $resultado[0]['titulo'];?></h2>
             <div class="info-cabecera">Publicado el <?php echo $resultado[0]['fecha_pub']?> por 
-                <a href="/blog/autor/<?php echo $resultado[0]['alias']?>" class="autor"><?php echo $resultado[0]['autor']?></a>. 
-                <a href="/blog/categoria/<?php echo $resultado[0]['categoriaurl'] ?>" class="categorias"><?php echo $resultado[0]['categoria']?></a>.</div>
+                <a href="<?php echo $configs['url'];?>/autor/<?php echo $resultado[0]['alias']?>" class="autor"><?php echo $resultado[0]['autor']?></a>. 
+                <a href="<?php echo $configs['url'];?>/categoria/<?php echo $resultado[0]['categoriaurl'] ?>" class="categorias"><?php echo $resultado[0]['categoria']?></a>.</div>
             <br>
         </header>
         <hr>

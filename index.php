@@ -74,14 +74,14 @@ switch($parametros[$indice]):
         include "vistas/publicar.php";
         break;
     case "editar":
-            $entrada = $parametros[$indice + 1];
+        $entrada = $parametros[$indice + 1];
 
-            $sentencia = 'SELECT posts.titulo, posts.fecha_pub, posts.contenido, '
-                .' posts.url, posts.descripcion FROM posts inner join autores on posts.autor = autores.id '
-                .' inner join categorias on posts.categorias = categorias.id WHERE posts.id = ?';
-            $resultado = $db->sentencia($sentencia, array($entrada));
-            include "vistas/editar.php";
-            break;
+        $sentencia = 'SELECT posts.titulo, posts.fecha_pub, posts.contenido, '
+            .' posts.url, posts.descripcion FROM posts inner join autores on posts.autor = autores.id '
+            .' inner join categorias on posts.categorias = categorias.id WHERE posts.id = ?';
+        $resultado = $db->sentencia($sentencia, array($entrada));
+        include "vistas/editar.php";
+        break;
     case "autor":
         $alias = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";  
         $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"

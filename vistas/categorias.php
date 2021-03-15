@@ -12,8 +12,8 @@ forEach($resultado as $fila) {
                 <header class="info-resumen">
                     <h2><a href="<?php echo $configs['url'];?>/posts/<?php echo $fila['url']; ?>"><?php echo $fila['titulo']?></a></h2>
                     <div class="info-cabecera">Fecha: <?php echo $fila['fecha_pub'] ?>. Autor: 
-                        <a href="/blog/autor/<?php echo $fila['alias'] ?>" class="autor"><?php echo $fila['autor']?></a>. 
-                        <a href="/blog/categoria/<?php echo $fila['categoriaurl'] ?>" class="categorias"><?php echo $fila['categoria']?></a>.
+                        <a href="<?php echo $configs['url'];?>/autor/<?php echo $fila['alias'] ?>" class="autor"><?php echo $fila['autor']?></a>. 
+                        <a href="<?php echo $configs['url'];?>/categoria/<?php echo $fila['categoriaurl'] ?>" class="categorias"><?php echo $fila['categoria']?></a>.
                     </div>
                     
                 </header>
