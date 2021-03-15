@@ -2,7 +2,9 @@
 
 include_once "database.php";
 include_once "modelos/indexmodel.php";
+
 $model = new IndexModel();
+
 $configs = include('config.php');
 $url = $_SERVER['REQUEST_URI'];
 $url = strtolower($url);
@@ -12,15 +14,11 @@ $indice = 2;
 $limit = 6;
 $offset = 0;
 $entradasTotales = 0;
-/*$sentencia = "SELECT count(id) FROM posts";
-$entradasTotales = $db->seleccionar($sentencia)->fetchAll();
-$entradasTotales = intval($entradasTotales[0][0]);*/
 $pagina = 1;
 
 switch($parametros[$indice]):
     case "posts":
-        $nombre = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";      
-        
+        $nombre = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
         $resultado = $model->obtenerPosts($nombre);
         if(count($resultado) == 0) {
             $mensaje = "La entrada no existe o la url esta mal";
@@ -31,18 +29,15 @@ switch($parametros[$indice]):
     break;
 
     case "categoria":
-        
         $categoria = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
         $resultado = $model->obtenerPostsTotalesCategoria($categoria);
         include_once "vistas/categorias.php";
-
         break;
     case $parametros[$indice] == "index.php":
     case $parametros[$indice] == "index.html":
     case $parametros[$indice] == "index.htm":
     case $parametros[$indice] == "index":
     case $parametros[$indice] == "":
-        
         $resultado = $model->obtenerPostsTotales($limit, $offset);
         include_once "vistas/principal.php";
     break;
