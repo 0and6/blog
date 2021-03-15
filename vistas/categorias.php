@@ -42,17 +42,17 @@ $paginaAnterior = $pagina+1;
 $paginaSiguiente = $pagina-1;
 $ultimaPagina = intdiv($entradasTotales, $limit);
 if(($limit * $pagina) > $entradasTotales && count($resultado) == 0) {
-    echo "<div class='p-siguiente'><a href='$configs[url]/categoria/1'>Primera página</a></div>";
-    echo "<div class='p-anterior'><a href='$configs[url]/categoria/$ultimaPagina'>Última página</a></div>";
+    echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$categoria/1'>Primera página</a></div>";
+    echo "<div class='p-anterior'><a href='$configs[url]/categoria/$categoria/$ultimaPagina'>Última página</a></div>";
 } else if(($limit * $pagina) > $entradasTotales) {
-    echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$paginaSiguiente'>Página siguiente</a></div>";
+    echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$categoria/$paginaSiguiente'>Página siguiente</a></div>";
 } else {
     if($pagina > 1) {
         
-        echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$paginaSiguiente'>Página siguiente</a></div>";
+        echo "<div class='p-siguiente'><a href='$configs[url]/categoria/$categoria/$paginaSiguiente'>Página siguiente</a></div>";
     }
     
-    echo "<div class='p-anterior'><a href='$configs[url]/categoria/$paginaAnterior'>Página anterior</a></div>";
+    echo "<div class='p-anterior'><a href='$configs[url]/categoria/$categoria/$paginaAnterior'>Página anterior</a></div>";
 }
 
 ?>

@@ -30,6 +30,8 @@ switch($parametros[$indice]):
 
     case "categoria":
         $categoria = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
+        $pagina = count($parametros) >= 5 ? $parametros[$indice + 2] : 0;
+        echo $pagina;
         $resultado = $model->obtenerPostsTotalesCategoria($categoria);
         include_once "vistas/categorias.php";
         break;
@@ -42,13 +44,15 @@ switch($parametros[$indice]):
         include_once "vistas/principal.php";
     break;
     case "pagina":
+        //$pagina = count($parametros) >= 4 ? $parametros[$indice + 1] : "0";
+        
         $entradasTotales = $model->entradasTotales();
-        $sentencia = obtenerPostsTotales();
+        //$sentencia = obtenerPostsTotales();
         if(isset($parametros[$indice+1]) && !empty($parametros[$indice+1]) && $parametros[$indice+1] > 0) {
             $offset = ($parametros[$indice+1] - 1) * $limit;
             $pagina = $parametros[$indice+1];
         }
-        $resultado = $db->paginacionEntradas($sentencia, $limit, $offset);
+        $resultado = $model->obtenerPostsTotales($limit, $offset);
         include_once "vistas/principal.php";
         break;
     case "publicar":
@@ -62,6 +66,8 @@ switch($parametros[$indice]):
         break;
     case "autor":
         $alias = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
+        $pagina = count($parametros) >= 5 ? $parametros[$indice + 2] : 0;
+        echo $pagina;
         $resultado = $model->obtenerPostsTotalesAutor($alias);
         include_once "vistas/autores.php";
         break;
