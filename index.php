@@ -11,6 +11,7 @@ $sesiones = new Sesiones();
 $configs = include('config.php');
 $url = $_SERVER['REQUEST_URI'];
 $url = strtolower($url);
+$url = strtok($url, "?");
 $parametros = explode("/", $url);
 $indice = 2;
 
