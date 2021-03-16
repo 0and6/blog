@@ -2,8 +2,11 @@
 
 include_once "database.php";
 include_once "modelos/indexmodel.php";
+include_once "modelos/loginmodel.php";
+include_once "sesiones.php";
 
 $model = new IndexModel();
+$sesiones = new Sesiones();
 
 $configs = include('config.php');
 $url = $_SERVER['REQUEST_URI'];
@@ -63,12 +66,20 @@ switch($parametros[$indice]):
         include_once "vistas/principal.php";
         break;
     case "publicar":
-        include "vistas/publicar.php";
+        if($sesiones->esActiva()) {
+            include "vistas/publicar.php";
+        } else {
+            include "vistas/login.php";
+        }
         break;
     case "editar":
-        $entrada = $parametros[$indice + 1];
-        $resultado = $model->obtenerEditarPost($entrada);
-        include "vistas/editar.php";
+        if($sesiones->esActiva()) {
+            $entrada = $parametros[$indice + 1];
+            $resultado = $model->obtenerEditarPost($entrada);
+            include "vistas/editar.php";
+        } else {
+            include "vistas/login.php";
+        }
         break;
     case "autor":
         $alias = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
