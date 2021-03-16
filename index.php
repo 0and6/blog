@@ -67,8 +67,7 @@ switch($parametros[$indice]):
         break;
     case "editar":
         $entrada = $parametros[$indice + 1];
-        $sentencia = $model->obtenerEditarPost();
-        $resultado = $db->sentencia($sentencia, array($entrada));
+        $resultado = $model->obtenerEditarPost($entrada);
         include "vistas/editar.php";
         break;
     case "autor":

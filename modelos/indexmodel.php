@@ -57,10 +57,12 @@ class IndexModel {
 
     
 
-    function obtenerEditarPost() {
-        return 'SELECT posts.titulo, posts.fecha_pub, posts.contenido, '
+    function obtenerEditarPost($entrada) {
+        $sentencia = 'SELECT posts.titulo, posts.fecha_pub, posts.contenido, '
         .' posts.url, posts.descripcion FROM posts inner join autores on posts.autor = autores.id '
         .' inner join categorias on posts.categorias = categorias.id WHERE posts.id = ?';
+
+        return  $this->db->sentencia($sentencia, array($entrada));
     }
 
     function obtenerPosts($nombre) {
