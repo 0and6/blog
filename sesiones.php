@@ -7,7 +7,8 @@ class Sesiones {
     }
 
     function activarSesion($nombre) {
-        session_start();
+        if(session_status() == PHP_SESSION_NONE)
+            session_start();
         $_SESSION['nombre'] = $nombre;
     }
 
