@@ -17,4 +17,10 @@
     <body>
         <header>
             <h1><a href="<?php echo $configs['url'];?>">0and6</a></h1>
+            
         </header>
+        <?php
+            if($sesiones->esActiva()) {
+                echo "<a href='$configs[url]/cerrarsesion'>cerrar sesion</a>";
+            }
+            ?>

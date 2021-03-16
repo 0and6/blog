@@ -6,16 +6,20 @@ class Sesiones {
         $this->sesion = false;
     }
 
-    function activarSesion() {
-        $this->sesion = true;
+    function activarSesion($nombre) {
+        session_start();
+        $_SESSION['nombre'] = $nombre;
     }
 
     function desactivarSesion() {
-        $this->sesion =false;
+        session_destroy();
     }
 
     function esActiva() {
-        return $this->sesion;
+        if(session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['nombre'])) {
+            return true;
+        }
+        return false;
     }
 }
 

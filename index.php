@@ -19,6 +19,7 @@ $offset = 0;
 $entradasTotales = 0;
 $pagina = 1;
 
+session_start();
 switch($parametros[$indice]):
     case "posts":
         $nombre = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
@@ -74,7 +75,7 @@ switch($parametros[$indice]):
         break;
     case "editar":
         if($sesiones->esActiva()) {
-            $entrada = $parametros[$indice + 1];
+            $entrada = isset($parametros[$indice + 1]) ? $parametros[$indice + 1] : 1;
             $resultado = $model->obtenerEditarPost($entrada);
             include "vistas/editar.php";
         } else {
@@ -93,6 +94,10 @@ switch($parametros[$indice]):
 
         //$resultado = $model->obtenerPostsTotalesAutor($alias);
         include_once "vistas/autores.php";
+        break;
+    case "cerrarsesion":
+        $sesiones->desactivarSesion();
+        header('Location: '. $configs[url] . '/index');
         break;
     default:
         $sentencia = $model->obtenerPostsTotales();

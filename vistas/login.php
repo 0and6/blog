@@ -9,6 +9,8 @@ if(isset($_POST['usuario']) || isset($_POST['contrasenia'])) {
     if(count($resultado) == 1) {
         if(password_verify($_POST['contrasenia'], $resultado[0]['contrasenia'])) {
             echo "usuario correcto";
+            $sesiones->activarSesion($resultado[0]['nombre']);
+            //header('Location: /blog/editar');
         } else {
             echo "contrasenia incorrecta";
         }
