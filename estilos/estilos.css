@@ -20,8 +20,10 @@ body {
     color: var(--fuente);
 }
 
+
 pre{
-    font-size: 10px;
+    font-family: 'Lora DejaVu Serif';
+    font-size: 12px;
 }
 
 header {
@@ -35,6 +37,9 @@ section {
 }
 
 article {
+    font-family: 'Lora DejaVu Serif';
+    font-size: 16px;
+
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     padding-left: 1.5rem;
@@ -45,6 +50,7 @@ article {
 }
 
 footer {
+
     background-color: var(--fuente);
     color: var(--background);
     height: 0.5in;
@@ -81,7 +87,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color:var(--main-color);
+    color:var(--main-color);    
 }
 
 figure {
@@ -234,3 +240,9 @@ blockquote:before {
          margin-right: auto;
      }
  }
+
+ @media screen and (-webkit-min-device-pixel-ratio:0) { 
+    body {
+      font-size: 25px;      
+      }
+  }
