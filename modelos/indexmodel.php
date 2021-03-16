@@ -11,7 +11,7 @@ class IndexModel {
     }
     
     function obtenerPostsTotales($limit, $offset) {
-        $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion,"
+        $sentencia = "SELECT posts.titulo, posts.url, posts.fecha_pub, posts.descripcion, "
         . "autores.nombre as autor, autores.alias as alias, categorias.nombre as categoria, categorias.url as categoriaurl FROM posts inner" .
         " join autores on posts.autor = autores.id inner join categorias on posts.categorias = " 
         . "categorias.id ORDER BY fecha_pub DESC LIMIT ? OFFSET ?";
