@@ -2,9 +2,9 @@
 
 return array(
     'host' => 'localhost',
-    'usuario_db' => 'root',
-    'contrasenia_db' => '',
-    'nombre_db' => 'blog',
+    'usuario_db' => 'admin',
+    'contrasenia_db' => '123',
+    'nombre_db' => '0and6blog',
     'url' => '/blog'
 );
 
