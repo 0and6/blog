@@ -38,7 +38,6 @@ switch($parametros[$indice]):
         $pagina = count($parametros) >= ($indice + 3) ? intval($parametros[$indice + 2]) : 1;
         if($pagina < 1) $pagina = 1;
         $entradasTotales = $model->entradasTotalesCategoria($categoria)[0][0];
-        //$resultado = $model->obtenerPostsTotalesCategoria($categoria);
 
         $offset = ($pagina - 1) * $limit;
         
@@ -93,8 +92,6 @@ switch($parametros[$indice]):
         
         $resultado = $model->obtenerPostsTotalesAutor($alias, $limit, $offset);
 
-        //$resultado = $model->obtenerPostsTotalesAutor($alias);
-        //include_once "vistas/autores.php";
         $mensaje = "Sección de autores: $alias"; 
         include_once "vistas/principal.php";
         break;
