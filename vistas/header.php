@@ -24,10 +24,11 @@
                 <li><a href="<?php echo $configs['url'].'/categorias'?>">Categorias</a></li>
                 <li><a href="<?php echo $configs['url'].'/sobremi'?>">Sobre mí</a></li>
                 <li><a href="<?php echo $configs['url'].'/contacto'?>">Contacto</a></li>
-            </ul>
-        <?php
-
+            
+            <?php
             if($sesiones->esActiva()) {
-                echo "<a href='$configs[url]/cerrarsesion'>cerrar sesion</a>";
+                echo "<li><a href='$configs[url]/cerrarsesion'>Cerrar sesión</a></li>";
             }
             ?>
+
+    </ul>
