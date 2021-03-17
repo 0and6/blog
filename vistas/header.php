@@ -20,10 +20,10 @@
             
         </header>
         <ul class="menu-sup">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Categorias</a></li>
-                <li><a href="#">Sobre mí</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="<?php echo $configs['url'].'/index'?>">Inicio</a></li>
+                <li><a href="<?php echo $configs['url'].'/categorias'?>">Categorias</a></li>
+                <li><a href="<?php echo $configs['url'].'/sobremi'?>">Sobre mí</a></li>
+                <li><a href="<?php echo $configs['url'].'/contacto'?>">Contacto</a></li>
             </ul>
         <?php
 
