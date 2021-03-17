@@ -71,7 +71,7 @@ switch($parametros[$indice]):
         if($sesiones->esActiva()) {
             include "vistas/publicar.php";
         } else {
-            include "vistas/login.php";
+            include "controladores/loginControlador.php";
         }
         break;
     case "editar":
@@ -80,7 +80,7 @@ switch($parametros[$indice]):
             $resultado = $model->obtenerEditarPost($entrada);
             include "vistas/editar.php";
         } else {
-            include "vistas/login.php";
+            include "controladores/loginControlador.php";
         }
         break;
     case "autor":

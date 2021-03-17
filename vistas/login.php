@@ -1,29 +1,17 @@
 <?php
 include_once "header.php";
-
-$loginModel = new LoginModel();
-if(isset($_POST['usuario']) || isset($_POST['contrasenia'])) {
-    //echo $_POST['usuario'] . "   " . password_hash($_POST['contrasenia'], PASSWORD_DEFAULT);
-    $resultado = $loginModel->verificarUsuario($_POST['usuario']);
-    //print_r($resultado);
-    if(count($resultado) == 1) {
-        if(password_verify($_POST['contrasenia'], $resultado[0]['contrasenia'])) {
-            echo "usuario correcto";
-            $sesiones->activarSesion($resultado[0]['nombre']);
-            //header('Location: /blog/editar');
-        } else {
-            echo "contrasenia incorrecta";
-        }
-    } else {
-        echo "El usuario no existe";
-    }
-}
-
 ?>
 
 <section id="entradas">
 
+
 <h1>Iniciar sesión</h1>
+<?php
+if( isset($mensaje) ) {
+    echo $mensaje;
+}
+
+?>
 <form action="#" method="POST">
     <label for="usuario">Usuario:</label>           <br>
     <input type="text" name="usuario">              <br>
