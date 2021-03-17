@@ -16,10 +16,17 @@
     </head>
     <body>
         <header>
-            <h1><a href="<?php echo $configs['url'];?>">0and6</a></h1>
+            <h1><a href="<?php echo $configs['url'];?>"><img src="img/blog/logo_blanco.png" alt=""></a></h1>
             
         </header>
+        <ul class="menu-sup">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Categorias</a></li>
+                <li><a href="#">Sobre mí</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
         <?php
+
             if($sesiones->esActiva()) {
                 echo "<a href='$configs[url]/cerrarsesion'>cerrar sesion</a>";
             }

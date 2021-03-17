@@ -26,9 +26,31 @@ pre{
     font-size: 12px;
 }
 
-header {
+header  {
     border: 1px solid var(--main-color);
-    background-color: var(--main-color);
+    background-color: var(--main-color);   
+}
+
+header h1 {
+    
+}
+
+.menu-sup {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+}
+
+.menu-sup li {
+    display: inline;
+    padding-left: 3px;
+    padding-right: 3px;
+    color: var(--font);
+}
+
+.menu-sup li a {
+    color: var(--tono-claro);
 }
 
 section {
