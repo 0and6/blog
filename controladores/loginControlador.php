@@ -13,11 +13,9 @@ if(isset($_POST['usuario']) || isset($_POST['contrasenia'])) {
             header($redirect);
         } else {
             $mensaje = "contrasenia incorrecta";
-            
         }
     } else {
         $mensaje = "El usuario no existe";
-        
     }
 }
 include_once "vistas/login.php";
