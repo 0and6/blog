@@ -43,8 +43,8 @@ switch($parametros[$indice]):
         $offset = ($pagina - 1) * $limit;
         
         $resultado = $model->obtenerPostsTotalesCategoria($categoria, $limit, $offset);
-
-        include_once "vistas/categorias.php";
+        $mensaje = "Sección de categorias: $categoria"; 
+        include_once "vistas/principal.php";
         break;
     case $parametros[$indice] == "index.php":
     case $parametros[$indice] == "index.html":
@@ -94,7 +94,9 @@ switch($parametros[$indice]):
         $resultado = $model->obtenerPostsTotalesAutor($alias, $limit, $offset);
 
         //$resultado = $model->obtenerPostsTotalesAutor($alias);
-        include_once "vistas/autores.php";
+        //include_once "vistas/autores.php";
+        $mensaje = "Sección de autores: $alias"; 
+        include_once "vistas/principal.php";
         break;
     case "cerrarsesion":
         $sesiones->desactivarSesion();
