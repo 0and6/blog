@@ -23,7 +23,7 @@ $pagina = 1;
 session_start();
 switch($parametros[$indice]):
     case "posts":
-        $nombre = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
+        $nombre = count($parametros) >= ($indice + 2) ? $parametros[$indice + 1] : "none";
         $resultado = $model->obtenerPosts($nombre);
         if(count($resultado) == 0) {
             $mensaje = "La entrada no existe o la url esta mal";
@@ -34,8 +34,8 @@ switch($parametros[$indice]):
     break;
 
     case "categoria":
-        $categoria = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
-        $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
+        $categoria = count($parametros) >= ($indice + 2) ? $parametros[$indice + 1] : "none";
+        $pagina = count($parametros) >= ($indice + 3) ? intval($parametros[$indice + 2]) : 1;
         if($pagina < 1) $pagina = 1;
         $entradasTotales = $model->entradasTotalesCategoria($categoria)[0][0];
         //$resultado = $model->obtenerPostsTotalesCategoria($categoria);
@@ -84,8 +84,8 @@ switch($parametros[$indice]):
         }
         break;
     case "autor":
-        $alias = count($parametros) >= 4 ? $parametros[$indice + 1] : "none";
-        $pagina = count($parametros) >= 5 ? intval($parametros[$indice + 2]) : 1;
+        $alias = count($parametros) >= ($indice + 2) ? $parametros[$indice + 1] : "none";
+        $pagina = count($parametros) >= ($indice + 3) ? intval($parametros[$indice + 2]) : 1;
         if($pagina < 1) $pagina = 1;
 
         $entradasTotales = $model->entradasTotalesAutor($alias)[0][0];

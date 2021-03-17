@@ -8,7 +8,7 @@ class Database {
         $configs = include('config.php');
         //$this->conexion = pg_connect("host=$configs[host] port=5432 dbname=$configs[nombre_db] user=$configs[usuario_db] password=$configs[contrasenia_db]");
         try {
-            $this->mbd = new PDO("mysql:host=$configs[host];dbname=$configs[nombre_db]", $configs['usuario_db'], $configs['contrasenia_db']);
+            $this->mbd = new PDO("mysql:host=$configs[host];dbname=$configs[nombre_db];charset=utf8", $configs['usuario_db'], $configs['contrasenia_db']);
         } catch (PDOException $e) {
             print "¡Error!: " . $e->getMessage() . "<br/>";
             die();

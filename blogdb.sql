@@ -78,7 +78,7 @@ CREATE TABLE `posts` (
   `descripcion` text DEFAULT NULL,
   `categorias` int(11) NOT NULL,
   `etiquetas` varchar(50) DEFAULT NULL,
-  `fecha_pub` date DEFAULT current_timestamp(),
+  `fecha_pub` date DEFAULT NULL,
   `fecha_act` date DEFAULT NULL,
   `estado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
