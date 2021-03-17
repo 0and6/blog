@@ -24,6 +24,10 @@ body {
 pre{
     font-family: 'Lora DejaVu Serif';
     font-size: 12px;
+    background-color: var(--tono-oscuro);
+    color: var(--background);
+    padding: 10px;
+    font-weight: bold;
 }
 
 header  {

@@ -16,7 +16,7 @@
     </head>
     <body>
         <header>
-            <h1><a href="<?php echo $configs['url'];?>"><img src="img/blog/logo_blanco.png" alt=""></a></h1>
+            <h1><a href="<?php echo $configs['url'];?>">0and6</a></h1>
             
         </header>
         <ul class="menu-sup">
