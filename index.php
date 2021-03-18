@@ -43,6 +43,7 @@ switch($parametros[$indice]):
         
         $resultado = $model->obtenerPostsTotalesCategoria($categoria, $limit, $offset);
         $mensaje = "Sección de categorias: $categoria"; 
+        $urlbutton = "categoria/$categoria";
         include_once "vistas/principal.php";
         break;
     case $parametros[$indice] == "index.php":
@@ -52,6 +53,7 @@ switch($parametros[$indice]):
     case $parametros[$indice] == "":
         $entradasTotales = $model->entradasTotales();
         $resultado = $model->obtenerPostsTotales($limit, $offset);
+        $urlbutton = "pagina";
         include_once "vistas/principal.php";
     break;
     case "pagina":
@@ -64,6 +66,7 @@ switch($parametros[$indice]):
             $pagina = $parametros[$indice+1];
         }
         $resultado = $model->obtenerPostsTotales($limit, $offset);
+        $urlbutton = "pagina";
         include_once "vistas/principal.php";
         break;
     case "publicar":
@@ -93,6 +96,7 @@ switch($parametros[$indice]):
         $resultado = $model->obtenerPostsTotalesAutor($alias, $limit, $offset);
 
         $mensaje = "Sección de autores: $alias"; 
+        $urlbutton = "autor/$alias";
         include_once "vistas/principal.php";
         break;
     case "cerrarsesion":
