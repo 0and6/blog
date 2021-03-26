@@ -104,9 +104,12 @@ switch($parametros[$indice]):
         header('Location: '. $configs[url] . '/index');
         break;
     default:
-        $sentencia = $model->obtenerPostsTotales();
+        /*
         $resultado = $db->paginacionEntradas($sentencia, $limit, $offset);
         include_once "vistas/principal.php";
+        */
+        $mensaje = "Error página no encontrada";
+        include_once "vistas/error_1.php";
     break;
 endswitch;
 
